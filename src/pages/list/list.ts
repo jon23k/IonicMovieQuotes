@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 import { MovieQuote } from "../../models/MovieQuote";
+import { QuoteDetailPage } from "../quote-detail/quote-detail";
 
 /**
  * Generated class for the ListPage page.
@@ -65,5 +66,9 @@ export class ListPage {
 
   removeQuote(quoteToDelete: string){
     this.movieQuoteStream.remove(quoteToDelete);
+  }
+
+  pushDetailView(movieQuote: MovieQuote){
+    this.navCtrl.push(QuoteDetailPage, {key: movieQuote.$key});
   }
 }

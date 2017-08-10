@@ -62,4 +62,8 @@ export class ListPage {
     });
     prompt.present();
   }
+
+  removeQuote(quoteToDelete: string){
+    this.movieQuoteStream.remove(quoteToDelete);
+  }
 }

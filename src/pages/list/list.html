@@ -5,19 +5,21 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Movie Quotes</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showAddQuoteDialog()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-<ion-list>
-    <button ion-item *ngFor="let movieQuote of movieQuoteStream | async" (click)="itemSelected(item)">
+  <ion-list>
+    <button ion-item *ngFor="let movieQuote of movieQuoteStream | async | reverse" (click)="itemSelected(item)">
       <h2>{{movieQuote.quote}}</h2>
       <p>{{movieQuote.movie}}</p>
     </button>
-</ion-list>
+  </ion-list>
 </ion-content>
